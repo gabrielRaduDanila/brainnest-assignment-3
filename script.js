@@ -48,11 +48,7 @@ function playRound(computerSelection, playerSelection){
     (computerSelection == "scissors" && playerSelection == "rock")){
         playerWins++;
         console.log("Player is the winner. Try again");
-<<<<<<< Updated upstream
         alert(`Player is the winner. Try again. 
-=======
-        window.prompt(`Player is the winner. Try again. 
->>>>>>> Stashed changes
         The score is: Computer = ${computerWins} and Player = ${playerWins} `);
     } else if ((computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "paper" && playerSelection == "rock") || 

@@ -16,10 +16,20 @@ function computerPlay(){
 }
 computerPlay();
 console.log(computerSelection);
+let playerSelection;
+function selectOption(){
+let promptImput = window.prompt(`Pick rock or paper or scissors`);
+let lowerPropmtImput = promptImput.toLowerCase();
 
-
-let promptImput = window.prompt(`pick a number`);
-let playerSelection = promptImput.toLowerCase();
+if((lowerPropmtImput == "rock") ||
+    (lowerPropmtImput == "paper") ||
+    (lowerPropmtImput == "scissors")) {
+        playerSelection = lowerPropmtImput;
+    }else {window.prompt("Please make a valid selection");
+    }console.log(playerSelection);
+    return playerSelection;
+}
+selectOption();
 let computerWins = 0;
 let playerWins = 0;
 

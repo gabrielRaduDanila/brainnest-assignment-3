@@ -62,7 +62,7 @@ function playRound(computerSelection, playerSelection) {
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        playRound(computerSelection, playerSelection);
+        playRound();
     }
     alert(`The final score is: 
     Computer = ${computerWins} and Player = ${playerWins}`);

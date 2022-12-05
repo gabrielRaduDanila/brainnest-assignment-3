@@ -1,66 +1,74 @@
 console.log(`Main JavaScript Project`);
 
-let computerSelection;
-function computerPlay() {
-    let selection = Math.floor(Math.random() * 3);
-    if (selection == 0) {
-        computerSelection = "rock";
-    } else if (selection == 1) {
-        computerSelection = "paper";
-    } else {
-        computerSelection = "scissors";
-    }
-    return computerSelection;
-}
-
-let promptInput;
+let text = document.getElementById("display-text");
+console.log(text);
+const btns = document.querySelectorAll(".btn");
+console.log(btns);
 let playerSelection;
-function selectOption() {
-    promptInput = window.prompt(`Pick rock or paper or scissors`);
-
-    let lowerPropmtInput = promptInput.toLowerCase();
-
-    if ((lowerPropmtInput == "rock") ||
-        (lowerPropmtInput == "paper") ||
-        (lowerPropmtInput == "scissors")) {
-        playerSelection = lowerPropmtInput;
-    } else {
-        alert("Please make a valid selection");
-    }
-    return playerSelection;
-}
-
 let computerWins = 0;
 let playerWins = 0;
 
+function computerPlay() {
+    const selections = [`rock`, `paper`, `scissors`];
+    let computerSelection = selections[Math.floor(Math.random() * selections.length)];
+    return computerSelection;
+}
+
+btns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+        const select = e.currentTarget.classList;
+        let computerSelection = computerPlay();
+        console.log(computerSelection)
+        if (select.contains("rock")) {
+            playerSelection = "rock";
+        } else if (select.contains("paper")) {
+            playerSelection = "paper";
+        } else {
+            playerSelection = "scissors";
+        }
+        playRound(computerSelection, playerSelection);
+        text.innerText = `The computer choose ${computerSelection} 
+        and you choose ${playerSelection}.
+        The score is computer ${computerWins} and player ${playerWins}.
+        Choose again`;
+        if (computerWins + playerWins == 5) {
+            text.innerText = `The game has finished. 
+            The final score is computer ${computerWins} and player ${playerWins}.
+            Let's play again.`
+            computerWins = 0;
+            playerWins = 0;
+        }
+    })
+});
+
 function playRound(computerSelection, playerSelection) {
-    playerSelection = selectOption();
+
     console.log(`Player has select ${playerSelection}`);
-    computerSelection = computerPlay();
+    // computerSelection = computerPlay();
     console.log(`Computer has select ${computerSelection}`);
     if (playerSelection === computerSelection) {
         console.log("No winner. Try again");
-        alert("No winner. Try again");
+        alert("You made the same choice. No winner. Try again");
     } else if ((computerSelection == "rock" && playerSelection == "paper") ||
         (computerSelection == "paper" && playerSelection == "scissors") ||
         (computerSelection == "scissors" && playerSelection == "rock")) {
         playerWins++;
         console.log("Player is the winner. Try again");
-        alert(`Player is the winner. Try again. 
-        The score is: Computer = ${computerWins} and Player = ${playerWins} `);
+        // alert(`Player is the winner. Try again.
+        // The score is: Computer = ${computerWins} and Player = ${playerWins} `);
     } else {
         computerWins++;
-        alert(`Computer is the winner. Try again. 
-        The score is: Computer = ${computerWins} and Player = ${playerWins} `);
+        // alert(`Computer is the winner. Try again.
+        // The score is: Computer = ${computerWins} and Player = ${playerWins} `);
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-    alert(`The final score is: 
-    Computer = ${computerWins} and Player = ${playerWins}`);
-}
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         playRound();
+//     }
+//     alert(`The final score is:
+//     Computer = ${computerWins} and Player = ${playerWins}`);
+// }
 
-game();
+// game();

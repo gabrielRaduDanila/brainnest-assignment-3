@@ -67,3 +67,37 @@ p{
     font-size: 1.6em;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px){
+    .game-div{
+        width: 100%;
+    }
+
+    .display{
+        width: 95%;
+        font-size: 16px;
+    }
+
+    .buttons{
+        height: auto;
+        width: 80%;
+        flex-direction: column;
+        gap: 10px;
+        border: 0ch;
+    }
+
+    button{
+        height: 50px;
+        width: 70%;
+    }
+
+    .rock, .paper, .scissors{
+        background-position: center;
+        background-size: 50%;
+    }
+
+    button:hover{
+        color:black;
+        scale: 1;
+    }
+}

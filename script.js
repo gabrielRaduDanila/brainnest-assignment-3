@@ -48,27 +48,12 @@ function playRound(computerSelection, playerSelection) {
     console.log(`Computer has select ${computerSelection}`);
     if (playerSelection === computerSelection) {
         console.log("No winner. Try again");
-        alert("You made the same choice. No winner. Try again");
     } else if ((computerSelection == "rock" && playerSelection == "paper") ||
         (computerSelection == "paper" && playerSelection == "scissors") ||
         (computerSelection == "scissors" && playerSelection == "rock")) {
         playerWins++;
         console.log("Player is the winner. Try again");
-        // alert(`Player is the winner. Try again.
-        // The score is: Computer = ${computerWins} and Player = ${playerWins} `);
     } else {
         computerWins++;
-        // alert(`Computer is the winner. Try again.
-        // The score is: Computer = ${computerWins} and Player = ${playerWins} `);
     }
 }
-
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         playRound();
-//     }
-//     alert(`The final score is:
-//     Computer = ${computerWins} and Player = ${playerWins}`);
-// }
-
-// game();
